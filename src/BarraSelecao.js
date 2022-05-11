@@ -1,7 +1,7 @@
 import styled from 'styled-components'
 
 export default function  BarraSelecao({detalhes,setDetalhes,buscarItens}){
-    const listaEsporte=['futebol','basquete','futebol-americano']
+    const listaEsporte=['futebol','basquete','futebol-americano', 'handebol']
     const listaUtensilio=['bola','camisa','calcado']
     return (
         <Div>
