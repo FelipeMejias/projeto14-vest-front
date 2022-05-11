@@ -7,6 +7,7 @@ import Home from './Home'
 import Topo from './Topo'
 import BarraSelecao from './BarraSelecao'
 import Inserir from './Inserir'
+import DetalhesProduto from './DetalhesProduto';
 import {useEffect, useState} from 'react'
 import axios from 'axios'
 function App() {
@@ -26,6 +27,7 @@ function App() {
     
   const [barraSelecao,setBarraSelecao]=useState(false)
   const [detalhesBusca,setDetalhesBusca]=useState({})
+  
   const [resposta,setResposta]=useState(false)
    
 
@@ -35,11 +37,14 @@ function App() {
       
       <Topo setBarraSelecao={setBarraSelecao} barraSelecao={barraSelecao}/>
       {barraSelecao?<BarraSelecao buscarItens={buscarItens} detalhes={detalhesBusca} setDetalhes={setDetalhesBusca}/>:<></>}
+
       <Container>
-      <Routes>
-        <Route path='/inserir' element={<Inserir detalhes={detalhesBusca} setDetalhes={setDetalhesBusca}/>}/>
-        <Route path='/' element={<Home buscarItens={buscarItens} resposta={resposta} />}/>
-      </Routes>
+        <Routes>
+          
+          <Route path='/inserir' element={<Inserir detalhes={detalhesBusca} setDetalhes={setDetalhesBusca}/>}/>
+          <Route path='/itens' element={<Home buscarItens={buscarItens} resposta={resposta} />}/>
+          <Route path='/itens/:idItem' element={<DetalhesProduto />}/>
+        </Routes>
       </Container>
     </BrowserRouter>
   );

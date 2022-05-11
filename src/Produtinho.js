@@ -1,9 +1,14 @@
+import { Navigate, useNavigate } from 'react-router-dom'
 import styled from 'styled-components'
 
 export default function  Produtinho({detalhes}){
+    const navigate=useNavigate()
     const {foto,nome,valor}=detalhes
+    function abrirProduto(){
+        navigate(`/itens/${nome.split(' ').join('')}`)
+    }
 return (
-    <Caixa>
+    <Caixa onClick={()=>abrirProduto()}>
                     
         <img src={foto} />
         <div><h1>{nome}</h1></div>
