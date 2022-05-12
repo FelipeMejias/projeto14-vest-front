@@ -1,6 +1,3 @@
-import logo from './logo.svg';
-import './App.css';
-import './reset.css'
 import {BrowserRouter,Routes,Route} from 'react-router-dom'
 import {useState} from 'react'
 import styled from 'styled-components'
@@ -11,6 +8,15 @@ import BarraSelecao from './BarraSelecao'
 import Inserir from './Inserir'
 import DetalhesProduto from './DetalhesProduto';
 import BarraBusca from './BarraBusca';
+import SignUp from './SignUp'
+import MainPage from './MainPage'
+
+import logo from './logo.svg';
+
+import './reset.css'
+import './App.css';
+
+  
 
 function App() {  
   const [barraSelecao,setBarraSelecao]=useState(false)
@@ -27,6 +33,10 @@ function App() {
 
           <Route path='/inserir' element={<Inserir setInserir={setInserir} inserir={inserir}/>}/>
           <Route path='/itens' element={<Home resposta={resposta} setResposta={setResposta}/>}/>
+          <Route path="/" element={<MainPage />} />
+          <Route path="/sign-up" element={<SignUp />} />
+          
+          
           <Route path='/itens/:idItem' element={<DetalhesProduto />}/>
         </Routes>
       </Container>
