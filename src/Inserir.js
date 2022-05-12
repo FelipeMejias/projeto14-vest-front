@@ -1,16 +1,16 @@
 import axios from 'axios';import styled from 'styled-components'
 import { useState } from 'react';
-export default function Inserir({detalhes,setDetalhes}){
+export default function Inserir({inserir,setInserir}){
     const [foto,setFoto]=useState('')
     const [nome,setNome]=useState('')
     const [valor,setValor]=useState('')
     async function  salvar(){
         try{await axios.post('http://localhost:5007/itens',{
             foto,nome,valor,
-            esporte:detalhes.esporte,
-            utensilio:detalhes.utensilio
+            esporte:inserir.esporte,
+            utensilio:inserir.utensilio
         })
-        setFoto('');setNome('');setValor('');setDetalhes({esporte:'',utensilio:''})
+        setFoto('');setNome('');setValor('');setInserir({esporte:'',utensilio:''})
     }catch{console.log('eita falhou')} 
     }
     return(
@@ -26,5 +26,5 @@ const Caixa=styled.div`
 height:75vh;width:100%;display:flex;flex-direction:column;
 justify-content:space-evenly;align-items:center;
 input{width:420px;height:45px;border-radius:5px;font-size:20px}
-button{width:250px;height:100px;border-radius:5px;font-size:20px;background-color:#016B00;color:white}
+button{cursor: pointer; width:250px;height:100px;border-radius:5px;font-size:20px;background-color:#016B00;color:white}
 `
