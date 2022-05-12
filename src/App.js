@@ -1,15 +1,20 @@
-import logo from './logo.svg';
-import './App.css';
-import './reset.css'
 import {BrowserRouter,Routes,Route} from 'react-router-dom'
+import {useEffect, useState} from 'react'
 import styled from 'styled-components'
+import axios from 'axios'
+
 import Home from './Home'
 import Topo from './Topo'
 import BarraSelecao from './BarraSelecao'
 import Inserir from './Inserir'
 import DetalhesProduto from './DetalhesProduto';
-import {useEffect, useState} from 'react'
-import axios from 'axios'
+import SignUp from './SignUp'
+import MainPage from './MainPage'
+
+import logo from './logo.svg';
+
+import './reset.css'
+import './App.css';
 function App() {
   function buscarItens(selecoes){
     
@@ -40,7 +45,8 @@ function App() {
 
       <Container>
         <Routes>
-          
+          <Route path={"/"} element={<MainPage />} />
+          <Route path={"/sign-up"} element={<SignUp />} />
           <Route path='/inserir' element={<Inserir detalhes={detalhesBusca} setDetalhes={setDetalhesBusca}/>}/>
           <Route path='/itens' element={<Home buscarItens={buscarItens} resposta={resposta} />}/>
           <Route path='/itens/:idItem' element={<DetalhesProduto />}/>
