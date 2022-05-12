@@ -9,7 +9,7 @@ export default function  Home({resposta,setResposta}){
         const promessa=axios.get(`http://localhost:5007/itens`)
         promessa.then(res=>setResposta(res.data))
         promessa.catch(()=>console.log('erro no get'))
-      }  
+    }  
     useEffect(()=>{buscarItens()},[])
     return (
         <Div>

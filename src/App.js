@@ -2,20 +2,17 @@ import {BrowserRouter,Routes,Route} from 'react-router-dom'
 import {useState} from 'react'
 import styled from 'styled-components'
 
-import Home from './Home'
-import Topo from './Topo'
-import BarraSelecao from './BarraSelecao'
-import Inserir from './Inserir'
-import DetalhesProduto from './DetalhesProduto';
-import BarraBusca from './BarraBusca';
-import SignUp from './SignUp'
-import MainPage from './MainPage'
+import Home from './components/Home'
+import Inserir from './components/Inserir'
+import SignUp from './components/SignUp'
+import Topo from './components/Topo'
+import BarraSelecao from './components/BarraSelecao'
+import DetalhesProduto from './components/DetalhesProduto';
+import BarraBusca from './components/BarraBusca';
+import MainPage from './components/MainPage'
 
-import logo from './logo.svg';
-
-import './reset.css'
-import './App.css';
-
+import './css/reset.css'
+import './css/App.css';
   
 
 function App() {  
