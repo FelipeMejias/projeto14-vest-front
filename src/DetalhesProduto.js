@@ -3,7 +3,7 @@ import styled from 'styled-components'
 import axios from 'axios'
 import { useEffect, useState } from 'react'
 
-export default function  DetalhesProduto(){
+export default function  DetalhesProduto({respostaLogin}){
     const [detalhes,setDetalhes]=useState({})
     const parametro=useParams()
     const {idItem}=parametro
@@ -14,7 +14,13 @@ export default function  DetalhesProduto(){
         promessa.then(res=>{setDetalhes(res.data);definirEscolhas(res.data)})
         promessa.catch(()=>console.log('erro no get'))
       } 
+      function adicionarAoCarrinho(){
     
+        const promessa=axios.post(`http://localhost:5007/carrinho`,detalhes,
+        {headers: {"token": respostaLogin.token}})
+        promessa.then(res=>console.log('foi'))
+        promessa.catch((e)=>console.log(e))
+      } 
     const {foto,nome,valor}=detalhes
     const  tamanhos=['P','M','G']
     const  numeros=['37','38','39','40','41']
@@ -22,7 +28,6 @@ export default function  DetalhesProduto(){
     const [colorido,setColorido]=useState() 
     const [lista,setLista]=useState([])
     function definirEscolhas(obj){
-        let lista; let colorido=false
         switch(obj.utensilio){
             case 'camisa':setLista(tamanhos);setColorido(false);break;
             case 'calcado':setLista(numeros);setColorido(false);break;
@@ -54,7 +59,7 @@ return (
             <div><h1>{nome}</h1></div>
             <p>{valor} $</p>       
         </Caixa>
-        <Botao onClick={()=>{}}>Adicionar ao carrinho</Botao>
+        <Botao onClick={()=>{adicionarAoCarrinho()}}>Adicionar ao carrinho</Botao>
     </>
     )
 }

@@ -10,6 +10,7 @@ import DetalhesProduto from './DetalhesProduto';
 import BarraBusca from './BarraBusca';
 import SignUp from './SignUp'
 import MainPage from './MainPage'
+import Carrinho from './Carrinho'
 
 import logo from './logo.svg';
 
@@ -23,6 +24,7 @@ function App() {
   const [barraBusca,setBarraBusca]=useState(false)
   const [resposta,setResposta]=useState(false)
   const [inserir,setInserir]=useState({esporte:'',utensilio:''})
+  const [respostaLogin,setRespostaLogin]=useState({})
   return (
     <BrowserRouter>
       <Topo setResposta={setResposta} setBarraBusca={setBarraBusca} barraBusca={barraBusca} setBarraSelecao={setBarraSelecao} barraSelecao={barraSelecao}/>
@@ -33,11 +35,11 @@ function App() {
 
           <Route path='/inserir' element={<Inserir setInserir={setInserir} inserir={inserir}/>}/>
           <Route path='/itens' element={<Home resposta={resposta} setResposta={setResposta}/>}/>
-          <Route path="/" element={<MainPage />} />
+          <Route path="/" element={<MainPage setRespostaLogin={setRespostaLogin} />} />
           <Route path="/sign-up" element={<SignUp />} />
           
-          
-          <Route path='/itens/:idItem' element={<DetalhesProduto />}/>
+          <Route path='/carrinho' element={<Carrinho respostaLogin={respostaLogin}/>}/>
+          <Route path='/itens/:idItem' element={<DetalhesProduto respostaLogin={respostaLogin}/>}/>
         </Routes>
       </Container>
     </BrowserRouter>

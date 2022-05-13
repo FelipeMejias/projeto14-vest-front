@@ -18,7 +18,7 @@ return (
 }
 const Caixa=styled.div`
 cursor: pointer; 
-div{display:flex;flex-direction:column;align-items:center;width:70%}
+
     width:calc((100% - 80px)/3);height:210px;box-sizing:border-box;
 background-color:white;margin:10px;
 border-radius:10px;
@@ -26,5 +26,6 @@ display:flex;flex-direction:column;
 align-items:center;justify-content:space-evenly;
 p{font-weight:700;font-size:20px}
 img{height:60%}
+div{display:flex;flex-direction:column;align-items:center;width:70%}
 @media(min-width:614px){width:173px}
 `
