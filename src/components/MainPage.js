@@ -6,11 +6,11 @@ import logo from "../assepts/logo.svg"
 
 import "../css/MainPage.css"
 
-export default function MainPage () {
+export default function MainPage ({setRespostaLogin}) {
     return (
         <div className="login">
             <Logo />
-            <Formulario/>
+            <Formulario setRespostaLogin={setRespostaLogin}/>
             <CadastreSe />
         </div>
     )
@@ -24,7 +24,7 @@ function Logo () {
     )
 }
 
-function Formulario ({setToken, setPerfil}) {
+function Formulario ({setToken, setPerfil,setRespostaLogin}) {
     const [email, setEmail] = useState("")
     const [password, setpassword] = useState("")
 
@@ -34,9 +34,10 @@ function Formulario ({setToken, setPerfil}) {
         e.preventDefault()
 
         try {
-            await axios.post("http://localhost:5007/sign-in", {
+            const promessa=  axios.post("http://localhost:5007/sign-in", {
                 email, password
             })
+            promessa.then(res=>{setRespostaLogin(res.data)})
             navigate("/itens")
         } catch (error) {
             alert("Ops! Infelizmente ocorreu um erro! Tente novamente!")

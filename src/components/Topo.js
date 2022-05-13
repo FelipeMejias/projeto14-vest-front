@@ -20,7 +20,7 @@ export default function  Topo({setBarraSelecao,barraSelecao,barraBusca,setBarraB
                 <button onClick={()=>navigate('/inserir')}><ion-icon name="construct-outline"></ion-icon></button>
                 
                 
-                <button ><ion-icon name="cart-outline"></ion-icon></button>
+                <button onClick={()=>navigate('/carrinho')}><ion-icon name="cart-outline"></ion-icon></button>
                 
             </div>
         </Div>

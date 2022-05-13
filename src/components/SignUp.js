@@ -40,7 +40,7 @@ function Formulario () {
                 name, email, password, confirmPassword
             })
             alert("Cadastro feito com sucesso!")
-            navigate("/itens")
+            navigate("/")
         } catch (error) {
             alert("Ops! Infelizmente ocorreu um erro! Tente novamente!")
             console.log(error)
