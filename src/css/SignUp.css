@@ -26,7 +26,7 @@
     gap: 13px;
 }
 .tela-cadastro form input {
-    width: 500px;
+    width: 450px;
     height: 58px;
     border-radius: 5px;
     border: none;
@@ -39,7 +39,7 @@
     padding-left: 15px;
 }
 .tela-cadastro form button {
-    width: 500px;
+    width: 450px;
     height: 46px;
     border-radius: 5px;
     border: none;

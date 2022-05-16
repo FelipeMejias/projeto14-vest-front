@@ -5,6 +5,7 @@ export default function Inserir({inserir,setInserir}){
     const [nome,setNome]=useState('')
     const [valor,setValor]=useState('')
     async function  salvar(){
+        
         try{await axios.post('http://localhost:5007/itens',{
             foto,nome,valor,
             esporte:inserir.esporte,
@@ -15,6 +16,8 @@ export default function Inserir({inserir,setInserir}){
     }
     return(
         <Caixa>
+            <h1>esporte: {inserir.esporte}</h1>
+            <h1>utensilio: {inserir.utensilio}</h1>
             <input value={foto} onChange={e=>setFoto(e.target.value)} placeholder='foto'></input>
             <input value={nome} onChange={e=>setNome(e.target.value)} placeholder='nome'></input>
             <input value={valor} onChange={e=>setValor(e.target.value)} placeholder='valor'></input>
@@ -23,6 +26,7 @@ export default function Inserir({inserir,setInserir}){
     )
 }
 const Caixa=styled.div`
+h1{font-size:20px;color:white}
 height:75vh;width:100%;display:flex;flex-direction:column;
 justify-content:space-evenly;align-items:center;
 input{width:420px;height:45px;border-radius:5px;font-size:20px}

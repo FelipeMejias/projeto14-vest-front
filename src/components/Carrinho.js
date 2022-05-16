@@ -39,9 +39,10 @@ h1{color:white;font-size:25px}
 `
 const Div=styled.div`
 display:flex;flex-wrap:wrap;width:100%;
-
-@media(min-width:614px){width:614px};
-height:80vh;
+justify-content:flex-start;
+@media(min-width:614px){width:590px};
+@media(max-width:614px){width:calc(100% - 20px)}
+height:80vh;margin-left:10px;
 overflow:hidden;overflow-y:scroll;
 ::-webkit-scrollbar {
     width: 10px;

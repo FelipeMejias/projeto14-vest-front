@@ -26,10 +26,11 @@ export default function  Home({resposta,setResposta,barraBusca,barraSelecao}){
 }
 const Div=styled.div`
 display:flex;flex-wrap:wrap;
-justify-content:flex-start
+justify-content:flex-start;
 height:${props=>props.altura}vh;
-
-@media(min-width:614px){width:614px}
+margin-left:10px;
+@media(min-width:614px){width:590px}
+@media(max-width:614px){width:calc(100% - 20px)}
 overflow:hidden;overflow-y:scroll;
 ::-webkit-scrollbar {
     width: 10px;

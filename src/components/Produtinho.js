@@ -19,7 +19,7 @@ return (
 const Caixa=styled.div`
 cursor: pointer; 
 
-    width:calc((100% - 80px)/3);height:210px;box-sizing:border-box;
+    width:calc((100% - 70px)/3);height:210px;box-sizing:border-box;
 background-color:white;margin:10px;
 border-radius:10px;
 display:flex;flex-direction:column;
