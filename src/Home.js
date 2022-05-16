@@ -3,22 +3,50 @@ import styled from 'styled-components'
 import axios from 'axios'
 import Produtinho from './Produtinho'
 
-export default function  Home({resposta,setResposta}){
+export default function  Home({resposta,setResposta,barraBusca,barraSelecao}){
     function buscarItens(){
     
         const promessa=axios.get(`http://localhost:5007/itens`)
         promessa.then(res=>setResposta(res.data))
         promessa.catch(()=>console.log('erro no get'))
       }  
+    function calcularAltura(){
+        if(barraBusca){return 84}
+        if(barraSelecao){return 74}
+        return 90
+    }
     useEffect(()=>{buscarItens()},[])
     return (
-        <Div>
+        
+        <Div altura={calcularAltura}>
             {resposta?resposta.map(obj=> <Produtinho detalhes={obj}/> ):<></>}
         </Div>
+        
     )
 }
 const Div=styled.div`
 display:flex;flex-wrap:wrap;
-align-items:center;justify-content:center;
-@media(min-width:700px){width:700px}
+justify-content:flex-start
+height:${props=>props.altura}vh;
+
+@media(min-width:614px){width:614px}
+overflow:hidden;overflow-y:scroll;
+::-webkit-scrollbar {
+    width: 10px;
+  }
+  
+  /* Track */
+  ::-webkit-scrollbar-track {
+    background: #019700; 
+  }
+   
+  /* Handle */
+  ::-webkit-scrollbar-thumb {
+    background: #03cc00; 
+  }
+  
+  /* Handle on hover */
+  ::-webkit-scrollbar-thumb:hover {
+    background: #03cc00; 
+  }
 `

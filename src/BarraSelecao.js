@@ -2,7 +2,7 @@ import { useState } from 'react'
 import styled from 'styled-components'
 import axios from 'axios'
 export default function  BarraSelecao({setResposta,setInserir,inserir}){
-    const listaEsporte=['futebol','basquete','futebol-americano', 'handebol']
+    const listaEsporte=['futebol','basquete','futebol-americano']
     const listaUtensilio=['bola','camisa','calcado']
     const [detalhes,setDetalhes]=useState({})
     function buscarItens(selecoes){
@@ -73,7 +73,7 @@ const Div=styled.div`
 background-color:#016b00;
 
 display:flex;justify-content:center;align-items:center;
-width:100%;
+width:100%;height:16vh;
 .orgSelecao{width:90%;display:flex;justify-content:space-between;margin-bottom:7px}
 @media(min-width:614px){.orgSelecao{width:540px}}
 

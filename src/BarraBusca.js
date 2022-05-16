@@ -20,7 +20,7 @@ export default function  BarraBusca({setResposta}){
 }
 const Tudo=styled.div`
 background-color:#016b00;
-
+height:6vh;
 display:flex;justify-content:center;align-items:center;
 width:100%;
 input{

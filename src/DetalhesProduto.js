@@ -1,9 +1,10 @@
-import { useParams } from 'react-router-dom'
+import { useNavigate, useParams } from 'react-router-dom'
 import styled from 'styled-components'
 import axios from 'axios'
 import { useEffect, useState } from 'react'
 
 export default function  DetalhesProduto({respostaLogin}){
+    const navigate=useNavigate()
     const [detalhes,setDetalhes]=useState({})
     const parametro=useParams()
     const {idItem}=parametro
@@ -18,7 +19,7 @@ export default function  DetalhesProduto({respostaLogin}){
     
         const promessa=axios.post(`http://localhost:5007/carrinho`,detalhes,
         {headers: {"token": respostaLogin.token}})
-        promessa.then(res=>console.log('foi'))
+        promessa.then(res=>navigate('/carrinho'))
         promessa.catch((e)=>console.log(e))
       } 
     const {foto,nome,valor}=detalhes
@@ -46,8 +47,22 @@ export default function  DetalhesProduto({respostaLogin}){
                 
             })
         )
-    
-    useEffect(()=>{buscarItem();},[])
+        const [carrinhoContemItem,setCarrinhoContemItem]=useState(false)
+    function checarCarrinho(){
+            const promessa=axios.get(`http://localhost:5007/carrinho/${idItem}`,
+            {headers: {"token": respostaLogin.token}})
+            promessa.then(res=>setCarrinhoContemItem(res.data))
+            promessa.catch((e)=>console.log(e))
+    }
+    function removerDoCarrinho(){
+        const promessa=axios.delete(`http://localhost:5007/carrinho/${idItem}`,
+        {headers: {"token": respostaLogin.token}})
+        promessa.then(res=>navigate('/carrinho'))
+        promessa.catch((e)=>console.log(e))
+}
+
+
+    useEffect(()=>{buscarItem();checarCarrinho()},[])
 return (
     <>
         <Caixa>       
@@ -59,7 +74,9 @@ return (
             <div><h1>{nome}</h1></div>
             <p>{valor} $</p>       
         </Caixa>
-        <Botao onClick={()=>{adicionarAoCarrinho()}}>Adicionar ao carrinho</Botao>
+        {carrinhoContemItem?
+        <Botao onClick={()=>{removerDoCarrinho()}}>Remover do carrinho</Botao>:
+        <Botao onClick={()=>{adicionarAoCarrinho()}}>Adicionar ao carrinho</Botao>}
     </>
     )
 }
@@ -80,8 +97,8 @@ const Caixinha=styled.div`cursor: pointer;
 background-color:${props=>props.cor};border:4px solid ${props=>props.borda};width:40px;height:40px;border-radius:3px;margin-right:7px;margin-left:7px;font-size:18px;font-weight:600;box-sizing:border-box;
 `
 const Botao=styled.button`cursor: pointer; 
-width:250px;height:100px;border-radius:5px;
+width:250px;height:80px;border-radius:5px;
 font-size:20px;background-color:#016B00;color:white;
-margin:10px
+margin:10px;border:0;
 
 `

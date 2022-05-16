@@ -26,5 +26,5 @@ const Caixa=styled.div`
 height:75vh;width:100%;display:flex;flex-direction:column;
 justify-content:space-evenly;align-items:center;
 input{width:420px;height:45px;border-radius:5px;font-size:20px}
-button{cursor: pointer; width:250px;height:100px;border-radius:5px;font-size:20px;background-color:#016B00;color:white}
+button{border:0;cursor: pointer; width:250px;height:80px;border-radius:5px;font-size:20px;background-color:#016B00;color:white}
 `

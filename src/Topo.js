@@ -13,14 +13,14 @@ export default function  Topo({setBarraSelecao,barraSelecao,barraBusca,setBarraB
     return (
         <Div>
             <div>
-                <button onClick={()=>{setBarraSelecao(!barraSelecao);setBarraBusca(false)}}><ion-icon name="menu-outline"></ion-icon></button>
+                <button onClick={()=>{setBarraSelecao(!barraSelecao);setBarraBusca(false);navigate('/itens');}}><ion-icon name="menu-outline"></ion-icon></button>
                 <button onClick={()=>{setBarraSelecao(false);setBarraBusca(!barraBusca);navigate('/itens');}}><ion-icon name="search-outline"></ion-icon></button>
 
                 <button onClick={()=>{navigate('/itens');buscarItens()}}><ion-icon name="home-outline"></ion-icon></button>
                 <button onClick={()=>navigate('/inserir')}><ion-icon name="construct-outline"></ion-icon></button>
                 
                 
-                <button onClick={()=>navigate('/carrinho')}><ion-icon name="cart-outline"></ion-icon></button>
+                <button onClick={()=>{navigate('/carrinho');setBarraSelecao(false);setBarraBusca(false)}}><ion-icon name="cart-outline"></ion-icon></button>
                 
             </div>
         </Div>

@@ -34,7 +34,7 @@ function App() {
         <Routes>
 
           <Route path='/inserir' element={<Inserir setInserir={setInserir} inserir={inserir}/>}/>
-          <Route path='/itens' element={<Home resposta={resposta} setResposta={setResposta}/>}/>
+          <Route path='/itens' element={<Home resposta={resposta} setResposta={setResposta} barraBusca={barraBusca} barraSelecao={barraSelecao}/>}/>
           <Route path="/" element={<MainPage setRespostaLogin={setRespostaLogin} />} />
           <Route path="/sign-up" element={<SignUp />} />
           
@@ -47,7 +47,7 @@ function App() {
 }
 const Container=styled.div`
 background-color:#019700;
-margin-top:10vh;
+margin-top:10vh;height:90vh;
 display:flex;flex-direction:column;align-items:center;
 `
 

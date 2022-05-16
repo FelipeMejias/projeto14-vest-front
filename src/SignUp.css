@@ -1,6 +1,8 @@
+
+
 .tela-cadastro {
     height: 100vh;
-
+    width:100vw;position:fixed;z-index:7;top:0;background-color:#019700;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -24,7 +26,7 @@
     gap: 13px;
 }
 .tela-cadastro form input {
-    width: 100%;
+    width: 500px;
     height: 58px;
     border-radius: 5px;
     border: none;
@@ -37,7 +39,7 @@
     padding-left: 15px;
 }
 .tela-cadastro form button {
-    width: 100%;
+    width: 500px;
     height: 46px;
     border-radius: 5px;
     border: none;
