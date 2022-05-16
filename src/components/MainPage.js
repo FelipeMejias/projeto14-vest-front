@@ -2,9 +2,9 @@ import { Link, useNavigate } from "react-router-dom"
 import { useState } from "react"
 import axios from "axios"
 
-import logo from "./logo.svg"
+import logo from "../assepts/logo.svg"
 
-import "./MainPage.css"
+import "../css/MainPage.css"
 
 export default function MainPage ({setRespostaLogin}) {
     return (

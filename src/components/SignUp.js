@@ -2,9 +2,9 @@ import { Link, useNavigate } from "react-router-dom"
 import { useState } from "react"
 import axios from "axios"
 
-import logo from "./logo.svg"
+import logo from "../assepts/logo.svg"
 
-import "./SignUp.css"
+import "../css/SignUp.css"
 
 export default function SignUp () {
     return (
